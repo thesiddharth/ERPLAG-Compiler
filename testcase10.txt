@@ -1,0 +1,14 @@
+<<<driver program>>>
+start
+declare index:integer;
+get_value(index);
+switch(index)
+start
+	case 1: print(1);
+		break;
+	case 2: print(0);
+		break;
+	default: print(3);
+		 break;
+end
+end

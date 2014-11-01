@@ -1,0 +1,10 @@
+<<<driver program>>>
+start
+	declare i: integer;
+	i:=2;
+	while(i<=65)
+	start 
+		print(i);
+		i:= 2*i;
+	end
+end

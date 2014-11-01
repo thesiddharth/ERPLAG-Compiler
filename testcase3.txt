@@ -1,0 +1,83 @@
+declare module readArr;
+declare module arraySum;
+<<module arraySum>>
+takes input[list:array[1..15] of    real, n:integer];
+returns  [sum:real];
+start
+	declare index:integer;
+	declare t:boolean;
+	declare temp: integer;
+	sum:=0.0;
+	for(index in  1..15)
+	start
+		t:= index<=n;
+		declare temp:integer;
+		switch(t)
+		start
+			case true: print(list[index]);
+				   declare p1:integer;
+				   p1:= 25;
+				   sum:=sum+list[index];
+				   break;
+			case false: print(sum);
+				    declare temp: integer;
+				    print(index);
+				    break;
+			default: print(p1);
+				 break;
+		end
+	end
+	print(sum);
+	declare temp:integer;
+	print(p1);
+	**observe that the variable temp is declared in different scopes **
+	** lines 14 and 23 do not have conflict of multiple declaration of temp but line 31 has**  
+	** variable p1 is declared in different scope and is used in another**
+	** at line 26 p1 is a valid identifier but at line 32 it is not**
+	** scopes are identified as start and blocks**
+end
+<<<driver program>>>
+start
+	declare A:array[1..15] of real;
+	declare k:integer;
+	declare s:real;
+	declare vv:integer;
+	get_value(k);
+	[vv]:= use module readArr with parameters A,k;
+	[s]:= use module arraySum with parameters A;
+	print(s);
+end
+
+**The following module reads k  values one by one**
+** the array elements are populated with the read values**
+**The array variable is not returned as the translation will**
+**use the same locations for array elements**
+
+<<module readArr>>
+takes input [arr1:array[1..15] of real,k:integer];
+start
+	declare tempvar:real;
+	declare i:integer;
+	i:=1;
+	while(i<=k)
+	start
+		get_value(tempvar);
+		arr1[i]:=tempvar;
+		switch(tempvar)
+		start
+			case 20: print(i);
+				 break;
+			default: print(tempvar);
+				 break;
+		end
+		i:=i+1;
+		** the semantics of while needs an increment and will be taken care of at the second phase**
+	end
+	declare m: integer;
+	switch(k)
+	start
+		case true: get_value(m);break;
+		case 1 : print(m);break;
+	end
+end
+

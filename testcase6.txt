@@ -1,0 +1,17 @@
+<<<driver program>>>
+start
+	declare a: array [1..12] of integer;
+	declare sum: integer;
+	declare i, value1:integer;
+	sum:= 0;
+	for(i in 1..7)
+	start 
+		get_value(value1);
+		a[i]:= value1;
+		sum:= sum+a[i];
+	end
+	print(sum);
+end
+
+
+

@@ -1,0 +1,12 @@
+<<<driver program>>>
+start
+	declare value1, value2 :integer;
+	declare value3 :integer;
+	declare result: integer;
+	get_value(value1);
+	value2 := 12;
+	get_value(value3);
+	result := value1 + value2 + value3;
+	print(result);
+end
+

@@ -1,0 +1,15 @@
+<<<driver program>>>
+start
+	declare value1, value2, value3 :integer;
+	declare flag : boolean;
+	get_value(value1);
+	get_value(value2);
+	value3:= 49;
+	flag:= (value1 <= value2) AND (value3 <50);
+	switch(flag)
+	start
+		case false: print(100);break;
+		case true: print(200); break;
+	end
+end
+

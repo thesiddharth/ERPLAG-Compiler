@@ -1,0 +1,20 @@
+<<<driver program>>>
+start
+	declare index:integer;
+	declare t:boolean;
+	declare temp: integer;
+	for(index in  1..15)
+	start
+		t:= index<=5;
+		declare temp:integer;
+		switch(index)
+		start
+			case 1: print(temp);
+				   break;
+			case 2: print(0);
+			            break;
+			default: print(3);
+				 break;
+		end
+	end
+end

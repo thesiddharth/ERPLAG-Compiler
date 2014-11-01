@@ -1,0 +1,53 @@
+<<module sum>>
+takes input[a:integer, b:integer];
+returns [s:integer];
+start
+	s:= a+b;
+end
+<<<driver program>>>
+start
+	declare v_1_2_3:integer;
+	declare val1, val2: integer;
+	get_value(v_1_2_3);
+	declare sum1, result_:integer;
+	[result_]:=use module square with parameters v_1_2_3, v_1_2_3;
+	[sum1]:=use module sum with parameters val1, val2;
+	** no semantic error at line 15 but is at line 14 **
+	print(result);
+end
+<< module new>>
+takes input[a: array [1..12] of integer, n : integer];
+returns [sum: integer];
+start
+	declare i:integer;
+	sum:= 10.34;
+	for(i in 1..12)
+	start 
+		declare var_f: integer;
+		var_f:= i;
+		sum:= sum+a[i];
+		i:=i+1;
+	end
+	print(var_f);
+end
+
+
+<<module square>>
+takes input [x:integer, count:integer];
+returns [value:integer];
+start
+	declare decCount: integer;
+	declare s2:integer;
+	decCount:=count-1;
+	[s2]:=use module square with parameters x, decCount;
+	value:= s2+x;
+end
+
+<< module new>>
+takes input[b: real];
+returns [x:real, y:integer];
+start
+	x:= b/10;
+	** semantic error as y is not assigned any value within the function definition**
+end
+

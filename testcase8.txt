@@ -1,0 +1,23 @@
+<<<driver program>>>
+start
+	declare i, n, k: integer;
+	declare sum: integer;
+	sum:= 0;
+	n:=12;
+	i:=0;
+	while(i<=10)
+	start 
+		k:= 10;
+		while(k>=8)
+		start
+			sum:=sum+i*(n-k);
+			k:=k-1;
+		end
+		print(sum);
+		i:= i+2;
+	end
+	print(sum);
+end
+
+
+
